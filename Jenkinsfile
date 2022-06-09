@@ -12,6 +12,7 @@ pipeline {
             }
         }
 
+
         stage('Terraform') {
             steps {
                 script{
