@@ -10,7 +10,7 @@ pipeline {
                 sh 'ansible --version'
             }
         }
-        stage('Docker Build') {
+        stage('Terraform') {
             steps {
                 echo "${env.BUILD_NUMBER}"
                 sh 'sudo cp /home/ubuntu/terraform/vpc/terraform/* ./'
