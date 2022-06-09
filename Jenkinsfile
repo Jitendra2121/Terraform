@@ -13,7 +13,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo "${env.BUILD_NUMBER}"
-                sh 'sudo cp /home/ubuntu/terraform/vpc/terraform ./'
+                sh 'sudo cp /home/ubuntu/terraform/vpc/terraform/* ./'
                 sh 'sudo ${TERRAFORM_HOME} init -upgrade'
                 sh 'sudo ${TERRAFORM_HOME} plan' 
                 sh 'sudo ${TERRAFORM_HOME} apply --auto-approve'
