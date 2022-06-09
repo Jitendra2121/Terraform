@@ -10,6 +10,7 @@ pipeline {
                 sh '${TERRAFORM_HOME} --version'
             }
         }
+
         stage('Terraform') {
             steps {
                 script{
