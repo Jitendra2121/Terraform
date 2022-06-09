@@ -22,7 +22,6 @@ pipeline {
                 }
             }
         }
-
         
         stage("Trigerring Ansible Job") {
             steps {
