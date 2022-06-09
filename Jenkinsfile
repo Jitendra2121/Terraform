@@ -4,6 +4,7 @@ pipeline {
        BUILD_NUMBER_X = "${env.BUILD_NUMBER}"
        TERRAFORM_HOME = "/usr/bin/terraform"
     }
+
     stages {
         stage('Terraform Version') {
             steps {
