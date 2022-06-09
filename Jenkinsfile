@@ -13,7 +13,8 @@ pipeline {
             steps {
                 echo "${env.BUILD_NUMBER}"
                 sh 'cd /home/ubuntu/terraform/vpc'
-                sh 'sudo terraform plan'
+                sh 'sudo terraform init -upgrade'
+                /* sh 'sudo terraform plan' */
                 sh 'sudo terraform apply --auto-approve'
                 echo 'Build Number: ' + env.BUILD_NUMBER_X
                 echo "Succefully push the ${BUILD_NUMBER_X}th version for Terraform"
