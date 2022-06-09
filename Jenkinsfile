@@ -5,9 +5,9 @@ pipeline {
        TERRAFORM_HOME = "/usr/bin/terraform"
     }
     stages {
-        stage('Test') {
+        stage('Terraform Version') {
             steps {
-                sh 'ansible --version'
+                sh '${TERRAFORM_HOME} --version'
             }
         }
         stage('Terraform') {
