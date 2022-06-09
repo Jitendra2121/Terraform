@@ -18,19 +18,16 @@ pipeline {
                 sh 'sudo ${TERRAFORM_HOME} init -upgrade'
                 sh 'sudo ${TERRAFORM_HOME} plan'
                 sh 'sudo ${TERRAFORM_HOME} apply --auto-approve'
-/*
-#                EC2_IP = sh 'sudo terraform output Terraform_EC2_Public_IP'
-#                echo 'EC2 IP: ' + ${EC2_IP}
-#                echo "Succefully created EC2 Instance: ${EC2_IP} for Terraform."
-*/
+                sh 'sudo terraform output Terraform_EC2_Public_IP | sudo tee /tmp/replace.txt'
                 }
             }
         }
-        /* stage("Build_Number_Passing") {
+        
+        stage("Trigerring Ansible Job") {
             steps {
-                build job: 'eks-gitops-final', parameters: [string(name: 'BUILD_NUMBER_X', value: "${env.BUILD_NUMBER}")]
-                echo "Passing the Build Number: ${BUILD_NUMBER_X} to the eks-gitops job"
+                build job: 'Ansible'
+                echo "Trigerring Ansible Job"
             }
-        } */
+        } 
     }
 }
