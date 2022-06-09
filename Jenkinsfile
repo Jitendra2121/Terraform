@@ -19,11 +19,11 @@ pipeline {
                 echo "Succefully push the ${BUILD_NUMBER_X}th version for Terraform"
             }
         }
-        \* stage("Build_Number_Passing") {
+        /* stage("Build_Number_Passing") {
             steps {
                 build job: 'eks-gitops-final', parameters: [string(name: 'BUILD_NUMBER_X', value: "${env.BUILD_NUMBER}")]
                 echo "Passing the Build Number: ${BUILD_NUMBER_X} to the eks-gitops job"
             }
-        } *\
+        } */
     }
 }
