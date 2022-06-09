@@ -18,7 +18,7 @@ pipeline {
                 sh 'sudo ${TERRAFORM_HOME} plan' 
                 sh 'sudo ${TERRAFORM_HOME} apply --auto-approve'
                 echo 'Build Number: ' + env.BUILD_NUMBER_X
-                echo "Succefully push the ${BUILD_NUMBER_X}th version for Terraform"
+                echo "Succefully push the ${BUILD_NUMBER_X}th version for Terraform."
             }
         }
         /* stage("Build_Number_Passing") {
