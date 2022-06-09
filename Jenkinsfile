@@ -17,8 +17,9 @@ pipeline {
                 sh 'sudo ${TERRAFORM_HOME} init -upgrade'
                 sh 'sudo ${TERRAFORM_HOME} plan' 
                 sh 'sudo ${TERRAFORM_HOME} apply --auto-approve'
-                echo 'Build Number: ' + env.BUILD_NUMBER_X
-                echo "Succefully push the ${BUILD_NUMBER_X}th version for Terraform."
+                EC2_IP = sh(returnStdout: true, script: "sudo terraform output Terraform_EC2_Public_IP").trim()
+                echo 'EC2 IP: ' + ${EC2_IP}
+                echo "Succefully created EC2 Instance: ${EC2_IP} for Terraform."
             }
         }
         /* stage("Build_Number_Passing") {
