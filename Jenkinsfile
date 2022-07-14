@@ -9,7 +9,6 @@ pipeline {
         stage('Terraform Version') {
             steps {
                 sh '${TERRAFORM_HOME} --version'
-		sh 'python3 --version'
             }
         }
 
